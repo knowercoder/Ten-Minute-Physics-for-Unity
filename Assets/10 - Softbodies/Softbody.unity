@@ -419,15 +419,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66fe1c570fbbfca48bdc1ce365d8a92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: {x: 0, y: -10, z: 0}
+  dt: 0.016
+  NumSubSteps: 10
   BunnyMeshJson: {fileID: 4900000, guid: f2953c4019a74134cbb3e7321cc7aa21, type: 3}
   myMaterial: {fileID: 2100000, guid: b1e3e47b0ac4bc848bdc698303cdb811, type: 2}
   slider: {fileID: 554142768}
   RunButton: {fileID: 47422175}
   SquashButton: {fileID: 1594190545}
   NewbodyButton: {fileID: 1421254772}
-  gravity: {x: 0, y: -10, z: 0}
-  dt: 0.016
-  NumSubSteps: 10
 --- !u!4 &241345259
 Transform:
   m_ObjectHideFlags: 0
@@ -1570,7 +1570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1421254771
 RectTransform:
   m_ObjectHideFlags: 0

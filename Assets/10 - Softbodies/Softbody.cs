@@ -37,12 +37,12 @@ public class Softbody
 
         this.numParticles = tetMesh.verts.Length / 3;
         this.numTets = tetMesh.tetIds.Length / 4;
-        this.pos = tetMesh.verts;
-        this.prevPos = tetMesh.verts;
+        this.pos = tetMesh.verts.ToArray();        
+        this.prevPos = tetMesh.verts.ToArray();
         this.vel = new float[3 * this.numParticles];
 
-        this.tetIds = tetMesh.tetIds;
-        this.edgeIds = tetMesh.tetEdgeIds;
+        this.tetIds = tetMesh.tetIds.ToArray();
+        this.edgeIds = tetMesh.tetEdgeIds.ToArray();
         this.restVol = new float[this.numTets];
         this.edgeLengths = new float[this.edgeIds.Length / 2];
         this.invMass = new float[this.numParticles];
@@ -61,10 +61,9 @@ public class Softbody
         var SoftBodyObject = new GameObject();
         SoftBodyObject.name = tetMesh.name;
         SoftBodyObject.AddComponent<MeshFilter>();
-        SoftBodyObject.AddComponent<MeshRenderer>().material = material;        
+        SoftBodyObject.AddComponent<MeshRenderer>().material = material;
         
-        this.surfaceMesh =  new Mesh();
-        SoftBodyObject.GetComponent<MeshFilter>().mesh = this.surfaceMesh;
+        this.surfaceMesh = SoftBodyObject.GetComponent<MeshFilter>().mesh;
         vertices = new Vector3[this.pos.Length / 3];
         for (int i = 0; i < vertices.Length; i++)
         {

@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class SoftbodyPhysics : MonoBehaviour
 {
+    [Header("Physics Variables")]
+    [SerializeField] Vector3 gravity = new Vector3(0f, -10f, 0f);
+    [SerializeField] float dt = 0.016f;
+    [SerializeField] int NumSubSteps = 10;
+
+    [Header("Mesh Input")]
     [SerializeField] TextAsset BunnyMeshJson;
     [SerializeField] Material myMaterial;
 
@@ -13,19 +19,13 @@ public class SoftbodyPhysics : MonoBehaviour
     [SerializeField] Slider slider;
     [SerializeField] Button RunButton;
     [SerializeField] Button SquashButton;
-    [SerializeField] Button NewbodyButton;
-
-    [Header("Physics Variables")]
-    [SerializeField] Vector3 gravity = new Vector3(0f, -10f, 0f);
-    [SerializeField] float dt = 0.016f;
-    [SerializeField] int NumSubSteps = 10;
+    [SerializeField] Button NewbodyButton;   
 
     TetMesh tetMesh;
     [HideInInspector] public PhysicsScene pScene; 
 
     void Start()
-    {
-        //Application.targetFrameRate = 60;
+    {        
         ReadMeshdatafromJson();
         pScene = new PhysicsScene(gravity, dt, NumSubSteps, true, null);        
         initPhysics();

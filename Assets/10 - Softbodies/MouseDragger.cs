@@ -20,7 +20,7 @@ public class MouseDragger : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            List<Softbody> array = softbodyPhysics.pScene.objects;
+            List<Softbody> array = softbodyPhysics.pScene.objects;            
             for (int i = 0; i < array.Count; i++)
             {
                 this.m_mouseParticle = this.PickParticle(ray.origin, ray.direction, array[i], this.radius, ref this.m_mouseT);
@@ -30,6 +30,7 @@ public class MouseDragger : MonoBehaviour
                     this.m_mousePos = ray.origin + ray.direction * this.m_mouseT;
                     this.m_mouseMass = this.body.invMass[this.m_mouseParticle];
                     this.body.invMass[this.m_mouseParticle] = 0f;
+                    break;
                 }
             }
         }
@@ -52,20 +53,13 @@ public class MouseDragger : MonoBehaviour
             this.vel = vector2 - vector;
             this.body.pos[this.m_mouseParticle*3] = vector2.x;
             this.body.pos[this.m_mouseParticle*3 + 1] = vector2.y;
-            this.body.pos[this.m_mouseParticle*3 + 2] = vector2.z; 
-
-            //this.body.vel[this.m_mouseParticle*3] = a.x / Time.deltaTime;
-            //this.body.vel[this.m_mouseParticle*3 + 1] = a.y / Time.deltaTime;
-            //this.body.vel[this.m_mouseParticle*3 + 2] = a.z / Time.deltaTime;
+            this.body.pos[this.m_mouseParticle*3 + 2] = vector2.z;                         
         }
     }
 
     
     private int PickParticle(Vector3 origin, Vector3 dir, Softbody body, float radius, ref float t)
-    {
-        // num - square radius
-        // num2 - short distance betwenn the origin and particle
-        // num3 - dot product of ray and line-between-origin-and-particle
+    {        
         float num = radius * radius;
         float num2 = float.MaxValue;
         int result = -1;
