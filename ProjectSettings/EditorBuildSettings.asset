@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Main.unity
+    guid: abb9ff2b3667f254d991b75367d7889f
+  - enabled: 1
+    path: Assets/01 - 2DPhysics/2DPhysics.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/02 - 3DPhysics/3DPhysics.unity
+    guid: 7c245f6ce7d29c240a5e5b77701d353d
+  - enabled: 1
+    path: Assets/03 - BilliardballCollision/BilliardBall.unity
+    guid: 549a8b15a926e6c41b9ab512bc374c88
+  - enabled: 1
+    path: Assets/05 - SimplePhysicsSimulation_Bead/BeadOnWire.unity
+    guid: 591ebfb748ba2124a8419fcfdc09cdd8
+  - enabled: 1
+    path: Assets/10 - Softbodies/Softbody.unity
+    guid: cff49f311cc2faa4aa08b7a653eb96fe
+  m_configObjects: {}
